@@ -1,4 +1,4 @@
-<!doctype html>
+export default `<!doctype html>
 <html lang="ru" data-beasties-container="">
 <head>
   <meta charset="utf-8">
@@ -10,3 +10,4 @@
   <app-root></app-root>
 <script src="main-HY4WAR3W.js" type="module"></script></body>
 </html>
+`;
