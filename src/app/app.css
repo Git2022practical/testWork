@@ -1,0 +1,128 @@
+form {
+  background-color: #fafafa;
+  margin-left: 20px;
+  padding: 15px;
+  width: 475px;
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: inline-block;
+  width: 120px;
+  line-height: 1;
+  font-weight: bold;
+  color: #777;
+}
+
+#textareaMessage label {
+  vertical-align: top;
+}
+
+#captcha {
+  margin-left: 5px;
+  font-weight: bold;
+  text-align: center;
+  color: #ff7f07;
+  border: 1px solid #ff7f07;
+  display: inline-block;
+  width: 60px;
+  cursor: default;
+  user-select: none;
+}
+
+#inputName #name, #inputEmail #email, #inputTelephone #telephone, #inputNumbers #numbers {
+  height: 25px;
+  color: #777;
+  padding-left: 10px;
+}
+
+#inputName #name, #inputEmail #email, #inputTelephone #telephone, #textareaMessage #message {
+  width: 71.3%;
+}
+
+#selectTheme #theme {
+  width: 74.25%;
+  height: 30px;
+  padding-left: 5px;
+  color: #777;
+  background-color: #fff;
+}
+
+#textareaMessage #message {
+  height: 120px;
+  padding-left: 10px;
+  color: #777;
+}
+
+#inputNumbers #numbers {
+  width: 95px;
+}
+
+#inputSubmit button {
+  width: 145px;
+  height: 25px;
+  color: #777;
+}
+
+input:focus, select:focus, textarea:focus, button:active {
+  outline: none;
+  border: 2px solid #007fff;
+  border-radius: 3px;
+}
+
+input:not(:focus), select:not(:focus), textarea:not(:focus), button:not(:active) {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#inputSubmit button:hover {
+  background-color: #ccc;
+}
+
+img[alt="formHeader"] {
+  position: absolute;
+  left: 13px;
+  top: 30px;
+}
+
+h2 {
+  position: relative;
+  right: 5px;
+  bottom: 7px;
+  color: #fff;
+  cursor: default;
+}
+
+img[alt="name"] {
+  position: absolute;
+  left: 170px;
+  top: 97px;
+  pointer-events: none;
+}
+
+img[alt="email"] {
+  position: absolute;
+  left: 170px;
+  top: 138px;
+  pointer-events: none;
+}
+
+img[alt="telephone"] {
+  position: absolute;
+  left: 170px;
+  top: 175px;
+  pointer-events: none;
+}
+
+:is(input:focus, input:not(:placeholder-shown)) ~ img {
+  display: none;
+}
+
+.alert {
+  color: #ff0000;
+}

@@ -1,0 +1,140 @@
+<form id="form" #form="ngForm" method="post" autocomplete="off">
+  <img src="/formHeader.png" alt="formHeader">
+  <h2>Напишите нам</h2>
+  <div id="inputName">
+    <label for="name">Ваше имя:</label>
+    <input name="name" id="name" placeholder="" [(ngModel)]="user.name" [ngModelOptions]="{ updateOn: 'submit' }" #name="ngModel" required>
+    @if (name.hasError('required') && form.submitted) {
+      <div>
+        <label></label>
+        <span class="alert">Введите имя</span>
+      </div>
+    }
+    <img src="/name.png" alt="name">
+  </div>
+  <div id="inputEmail">
+    <label for="email">Ваш Email:</label>
+    <input name="email" id="email" placeholder="" [(ngModel)]="user.email" [ngModelOptions]="{ updateOn: 'submit' }" #email="ngModel" required pattern="^([A-Za-z0-9][A-Za-z0-9\-\._]*[A-Za-z0-9])@[a-z0-9][a-z0-9\-\.]*[a-z0-9]\.[a-z]{2,}$">
+    @if (email.invalid && form.submitted) {
+      @if (email.hasError('required')) {
+        <div>
+          <label></label>
+          <span class="alert">Введите Email</span>
+        </div>
+      }
+      @else {
+        <div>
+          <label></label>
+          <span class="alert">Некорректный Email</span>
+        </div>
+      }
+    }
+    @if (name.hasError('required') && form.submitted) {
+      <style>
+        span ~ img[alt="email"] {
+          position: absolute;
+          top: 156px;
+        }
+      </style>
+      <span></span>
+    }
+    <img src="/email.png" alt="email">
+  </div>
+  <div id="inputTelephone">
+    <label for="telephone">Ваш телефон:</label>
+    <input type="tel" name="telephone" id="telephone" title="+7 (XXX) XXX-XX-XX" placeholder="" [(ngModel)]="user.telephone" [ngModelOptions]="{ updateOn: 'submit' }" #telephone="ngModel" prefix="+7 " mask="(000) 000-00-00">
+    @if (form.submitted) {
+      @if (telephone.value == '') {
+        <div>
+          <label></label>
+          <span class="alert">Введите номер телефона</span>
+        </div>
+      }
+      @else if (telephone.invalid) {
+        <div>
+          <label></label>
+          <span class="alert">Некорректный номер телефона</span>
+        </div>
+      }
+    }
+    @if (name.hasError('required') && email.invalid && form.submitted) {
+      <style>
+        #twoErrors ~ img[alt="telephone"] {
+          position: absolute;
+          top: 213px;
+        }
+      </style>
+      <span id="twoErrors"></span>
+    }
+    @else if ((name.hasError('required') || email.invalid) && form.submitted) {
+      <style>
+        #oneError ~ img[alt="telephone"] {
+          position: absolute;
+          top: 194px;
+        }
+      </style>
+      <span id="oneError"></span>
+    }
+    <img src="/telephone.png" alt="telephone">
+  </div>
+  <div id="selectTheme">
+    <label for="theme">Тема:</label>
+    <select name="theme" id="theme">
+      <option value="technicalSupport">Техподдержка</option>
+      <option value="sales">Продажи</option>
+      <option value="other">Другое</option>
+      <option value="oneMoreItem">Еще один пункт</option>
+    </select>
+  </div>
+  <div id="textareaMessage">
+    <label for="message">Ваше сообщение:</label>
+    <textarea name="message" id="message" [(ngModel)]="user.message" [ngModelOptions]="{ updateOn: 'submit' }" #message="ngModel" required></textarea>
+    @if (message.hasError('required') && form.submitted) {
+      <div>
+        <label></label>
+        <span class="alert">Введите сообщение</span>
+      </div>
+    }
+  </div>
+  <div id="inputNumbers">
+    <label for="numbers">Цифры:</label>
+    <input maxlength="5" name="numbers" id="numbers" [(ngModel)]="user.numbers" #numbers="ngModel" required>
+    <!--<div id="captcha">2<i>7</i>80<i>7</i></div>-->
+    <div id="captcha">
+      @for (elem of randomNumber; track $index) {
+        @let numberOfTheDigitStyle = randomIntForNumberOfTheDigitStyle[$index];
+
+        @if (numberOfTheDigitStyle == 0) {
+          <span>{{elem}}</span>
+        }
+        @else if (numberOfTheDigitStyle == 1) {
+          <span><b>{{elem}}</b></span>
+        }
+        @else if (numberOfTheDigitStyle == 2) {
+          <span><i>{{elem}}</i></span>
+        }
+        @else if (numberOfTheDigitStyle == 3) {
+          <span><b><i>{{elem}}</i></b></span>
+        }
+      }
+    </div>
+    @if (numbers.touched || form.submitted) {
+      @if (numbers.hasError('required')) {
+        <div>
+          <label></label>
+          <span class="alert">Введите капчу</span>
+        </div>
+      }
+      @else if(numbers.value != randomNumber) {
+        <div>
+          <label></label>
+          <span class="alert">Некорректная капча. Повторите попытку!</span>
+        </div>
+      }
+    }
+  </div>
+  <div id="inputSubmit">
+    <label></label>
+    <button>Отправить письмо!</button>
+  </div>
+</form>
