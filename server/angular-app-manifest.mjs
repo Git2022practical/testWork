@@ -2,7 +2,7 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: 'https://Git2022practical.github.io/testWork/',
+  baseHref: 'https://git2022practical.github.io/testWork/',
   locale: undefined,
   routes: [
   {
@@ -12,9 +12,9 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 679, hash: 'ab6e7b10df8c35edc78c899ebef28f8f1d5cd7d22dd938afb97052e5852e1420', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1016, hash: 'b15f1e2f07d219dd822908610fba384e7e4074f2f38b101ee38bad3652cf2d39', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'index.html': {size: 9184, hash: '7b5dc268ec4bfea8a44d9801d726683f5f6a23ba57285ae13e1f5a725e1e5ab0', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 679, hash: '08adead45e6550fb08d0f308889a5075031bc594f7b2def92a8bfd8be0545627', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1016, hash: '693250aad7af920143fd24a27dd2e2feadc5b766e43a4259152290fa4314cbc5', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.html': {size: 9295, hash: '79c957aa4cd1b41f4bd975fe83dc514c346bb63e34ddab172b1e6f9045071d0e', text: () => import('./assets-chunks/index_html.mjs').then(m => m.default)},
     'styles-CO5AJWM2.css': {size: 51, hash: 'cElj45uho5Y', text: () => import('./assets-chunks/styles-CO5AJWM2_css.mjs').then(m => m.default)}
   },
 };
